@@ -1,0 +1,37 @@
+body {
+    box-sizing: border-box;
+}
+
+.container {
+
+    width: 400px;
+    margin: auto;
+}
+
+
+.__menu-items {
+    margin-top: 3em;
+    /* background: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 ;
+    border-bottom: 2px solid #c1c1c1;
+}
+
+.__menu-details {
+    display: flex;
+    align-items: center;
+  
+
+}
+
+.__menu-details-text {
+    line-height: 5px;
+}
+
+.emoji {
+    background: greenyellow;
+    font-size: 3em;
+    margin-right: .3em;
+}
