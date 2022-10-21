@@ -2,7 +2,7 @@ import { menuArray } from "./data.js"
 
 const OrderProcess = document.getElementById("order-process")
 
-
+//event Listener
 document.addEventListener("click", function (e) {
 
     if (e.target.dataset.additemmenu) {
@@ -14,26 +14,29 @@ document.addEventListener("click", function (e) {
 const orderArray = []
 
 
+//handleclicks
 function handleAddMenuClick(menuId) {
     const order = AddMenu(menuId)
     orderArray.push(order)
 
     getOrderHtml()
-   const totalsum = getSumPrice()
-   document.getElementById("total-price").innerHTML = `<p>Total Price</p> $${totalsum} `
-  
-   console.log(totalsum )
-   OrderProcess.classList.remove("hidden");
-   OrderProcess.classList.add("show");
+    const totalsum = getSumPrice()
+    document.getElementById("total-price").innerHTML = `<p>Total Price</p> $${totalsum} `
+
+    console.log(totalsum)
+    OrderProcess.classList.remove("hidden");
+    OrderProcess.classList.add("show");
 }
 
+
+//functions
 function getSumPrice() {
     const totalPrice = orderArray.reduce((total, order) => {
         return total + order.price
     }, 0)
-   return totalPrice
+    return totalPrice
 }
-
+//
 function AddMenu(addMenuId) {
     const targetMenuObj = menuArray.filter(function (addmenu) {
         return addmenu.id == addMenuId
@@ -103,7 +106,7 @@ function getMenuHtml() {
 
 function render() {
     document.getElementById("menu").innerHTML = getMenuHtml()
-    
+
 }
 
 render()

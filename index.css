@@ -36,6 +36,10 @@ body {
     margin-right: .3em;
 }
 
+#order-process > h1 {
+text-align: center;
+}
+
 .ordered-items, #total-price {
 display: flex;
 justify-content: space-between;
@@ -59,4 +63,6 @@ align-items: center;
 #order-btn {
 background:rgb(22,219,153);
 width: 100%;
+padding: 1em;
+border: none;
 }
