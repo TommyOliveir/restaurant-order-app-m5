@@ -1,6 +1,9 @@
 import { menuArray } from "./data.js"
 
 const OrderProcess = document.getElementById("order-process")
+const Modal = document.getElementById("card-details-modal")
+const OrderBtn = document.getElementById("order-btn")
+
 
 //event Listener
 document.addEventListener("click", function (e) {
@@ -8,6 +11,10 @@ document.addEventListener("click", function (e) {
     if (e.target.dataset.additemmenu) {
 
         handleAddMenuClick(e.target.dataset.additemmenu)
+    }
+    else if (e.target.id === "order-btn") {
+
+        handleBtnClick()
     }
 })
 
@@ -21,12 +28,20 @@ function handleAddMenuClick(menuId) {
 
     getOrderHtml()
     const totalsum = getSumPrice()
-    document.getElementById("total-price").innerHTML = `<p>Total Price</p> $${totalsum} `
+    document.getElementById("total-price").innerHTML = `<h2>Total Price</h2> <h2>$${totalsum} </h2>`
 
     console.log(totalsum)
     OrderProcess.classList.remove("hidden");
     OrderProcess.classList.add("show");
+  
 }
+ 
+function handleBtnClick() {
+    console.log("btn-click")
+    Modal.style.display = "block"
+    OrderBtn.disabled = true
+}
+ 
 
 
 //functions

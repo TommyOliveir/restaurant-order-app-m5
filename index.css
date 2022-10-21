@@ -1,5 +1,14 @@
 body {
     box-sizing: border-box;
+    font-family: restoFont;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+@font-face {
+    font-family: restoFont;
+    src: url(fall.ttf);
 }
 
 .container {
@@ -15,14 +24,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 ;
+    padding: 0;
     border-bottom: 2px solid #c1c1c1;
 }
 
 .__menu-details {
     display: flex;
     align-items: center;
-  
+
 
 }
 
@@ -36,33 +45,61 @@ body {
     margin-right: .3em;
 }
 
-#order-process > h1 {
-text-align: center;
+#order-process>h1 {
+    text-align: center;
 }
 
-.ordered-items, #total-price {
-display: flex;
-justify-content: space-between;
+.ordered-items,
+#total-price {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
 }
 
 #total-price {
-display: flex;
-justify-content: space-between;
-align-items: center;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+    margin-bottom: 1em;
+    background: #f7f7f7;
+    padding: 0 1em;
 }
 
 
 .hidden {
     display: none;
 }
+
 .show {
     display: block;
 }
 
 #order-btn {
-background:rgb(22,219,153);
-width: 100%;
-padding: 1em;
-border: none;
+    background: rgb(22, 219, 153);
+    width: 100%;
+    padding: 1.3em .5em;
+    border: none;
+    border-radius: 2px;
+}
+
+#card-details-modal {
+    display: none;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 420px;
+    width: 350px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 2px #666;
+    background-color: #212529;
+    color: whitesmoke;
+}
+
+#card-details-modal>h2 {
+    text-align: center;
 }
