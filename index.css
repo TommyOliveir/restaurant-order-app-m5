@@ -35,3 +35,28 @@ body {
     font-size: 3em;
     margin-right: .3em;
 }
+
+.ordered-items, #total-price {
+display: flex;
+justify-content: space-between;
+}
+
+#total-price {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+}
+
+
+.hidden {
+    display: none;
+}
+.show {
+    display: block;
+}
+
+#order-btn {
+background:rgb(22,219,153);
+width: 100%;
+}
