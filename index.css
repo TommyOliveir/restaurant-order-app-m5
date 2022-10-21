@@ -17,6 +17,9 @@ body {
     margin: auto;
 }
 
+i {
+    cursor: pointer;
+}
 
 .__menu-items {
     margin-top: 3em;
@@ -40,7 +43,7 @@ body {
 }
 
 .emoji {
-    background: greenyellow;
+    /* background: greenyellow; */
     font-size: 3em;
     margin-right: .3em;
 }
@@ -54,6 +57,13 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0 1em;
+}
+
+.ordered-items span {
+    color: #bbbbbb;
+    font-size: .5em;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
 }
 
 #total-price {
@@ -82,6 +92,7 @@ body {
     padding: 1.3em .5em;
     border: none;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 #card-details-modal {

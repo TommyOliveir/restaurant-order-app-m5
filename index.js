@@ -16,9 +16,14 @@ document.addEventListener("click", function (e) {
 
         handleBtnClick()
     }
+    else if (e.target.dataset.remove) {
+
+      
+        handleRemoveClick(e.target.dataset.remove)
+    }
 })
 
-const orderArray = []
+let orderArray = []
 
 
 //handleclicks
@@ -33,7 +38,6 @@ function handleAddMenuClick(menuId) {
     console.log(totalsum)
     OrderProcess.classList.remove("hidden");
     OrderProcess.classList.add("show");
-  
 }
  
 function handleBtnClick() {
@@ -42,6 +46,14 @@ function handleBtnClick() {
     OrderBtn.disabled = true
 }
  
+function handleRemoveClick(removeId) {
+    console.log(removeId)
+    const deleteOrder = orderArray.filter(function(itemremove) {
+      return  itemremove.id !== removeId
+        
+    })[0]
+    console.log(deleteOrder)
+}
 
 
 //functions
@@ -73,8 +85,9 @@ function getOrderHtml() {
         orderHtml += ` 
                         <div class="ordered-items">
                             <p>
-                            ${order.name}
+                            ${order.name} <span data-remove="${order.id}">Remove</span>
                             </p>
+                           
                             <p>
                             $${order.price}
                             </p>
@@ -102,7 +115,9 @@ function getMenuHtml() {
                 
                     <div class="__menu-details">
                             <div class="emoji">${menuItem.emoji}</div>
+                      
                             <div class="__menu-details-text">
+                          
                                 <p>${menuItem.name}</p>
                                 <p>${menuItem.ingredients.join(", ")}</p>
                                 <p>$${menuItem.price}</p>
