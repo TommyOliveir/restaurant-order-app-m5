@@ -32,10 +32,9 @@ function handleAddMenuClick(menuId) {
     orderArray.push(order)
 
     getOrderHtml()
-    const totalsum = getSumPrice()
-    document.getElementById("total-price").innerHTML = `<h2>Total Price</h2> <h2>$${totalsum} </h2>`
+    renderSum()
 
-    console.log(totalsum)
+   
     OrderProcess.classList.remove("hidden");
     OrderProcess.classList.add("show");
 }
@@ -47,12 +46,18 @@ function handleBtnClick() {
 }
  
 function handleRemoveClick(removeId) {
-    console.log(removeId)
-    const deleteOrder = orderArray.filter(function(itemremove) {
-      return  itemremove.id !== removeId
+
+    // const deleteOrder = orderArray.filter(function(itemremove, index) {
+    //   return  index == removeId
         
-    })[0]
-    console.log(deleteOrder)
+    // })[0]
+ 
+   
+    orderArray.splice(removeId, 1)
+    console.log(orderArray)
+
+    getOrderHtml()
+    renderSum()
 }
 
 
@@ -62,6 +67,11 @@ function getSumPrice() {
         return total + order.price
     }, 0)
     return totalPrice
+}
+
+function renderSum() {
+    const totalsum = getSumPrice()
+    document.getElementById("total-price").innerHTML = `<h2>Total Price</h2> <h2>$${totalsum} </h2>`
 }
 //
 function AddMenu(addMenuId) {
@@ -80,12 +90,12 @@ function getOrderHtml() {
     //     orderHtml += order.name
     //  console.log(order.name)
     // }
-    orderArray.forEach(function (order) {
+    orderArray.forEach(function (order, index) {
         // console.log(order.name)
         orderHtml += ` 
                         <div class="ordered-items">
                             <p>
-                            ${order.name} <span data-remove="${order.id}">Remove</span>
+                            ${order.name} <span data-remove="${index}">Remove</span>
                             </p>
                            
                             <p>
