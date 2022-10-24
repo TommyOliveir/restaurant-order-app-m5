@@ -3,6 +3,7 @@ import { menuArray } from "./data.js"
 const OrderProcess = document.getElementById("order-process")
 const Modal = document.getElementById("card-details-modal")
 const OrderBtn = document.getElementById("order-btn")
+const PayBtn = document.getElementById("pay-btn")
 
 
 //event Listener
@@ -18,12 +19,14 @@ document.addEventListener("click", function (e) {
     }
     else if (e.target.dataset.remove) {
 
-      
+
         handleRemoveClick(e.target.dataset.remove)
     }
 })
 
 let orderArray = []
+
+
 
 
 //handleclicks
@@ -34,31 +37,46 @@ function handleAddMenuClick(menuId) {
     getOrderHtml()
     renderSum()
 
-   
+
     OrderProcess.classList.remove("hidden");
     OrderProcess.classList.add("show");
 }
- 
+
 function handleBtnClick() {
     console.log("btn-click")
-    Modal.style.display = "block"
+    Modal.classList.add("show");
     OrderBtn.disabled = true
 }
- 
+
 function handleRemoveClick(removeId) {
 
     // const deleteOrder = orderArray.filter(function(itemremove, index) {
     //   return  index == removeId
-        
+
     // })[0]
- 
-   
+
+
     orderArray.splice(removeId, 1)
     console.log(orderArray)
 
     getOrderHtml()
     renderSum()
 }
+
+PayBtn.addEventListener("click", function (event) {
+    event.preventDefault()
+   
+    // Modal.classList.add("hidden");
+    // Modal.classList.remove("show");
+    // console.log("thank you")
+    // document.getElementById("order-process").innerHTML = "  <h1>Thank you, your order is on the way</h1>"
+    Modal.innerHTML =      `<div class="order-complete-msg">
+                                <h1>
+                                    Thank you, Your order is on the way                
+                                </h1>
+                                <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                            </div>`
+})
 
 
 //functions
