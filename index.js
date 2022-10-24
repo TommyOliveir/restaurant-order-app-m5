@@ -153,7 +153,7 @@ function getMenuHtml() {
                             
                         </div>
                     <div>
-                    <i class="fa-solid fa-circle-plus" data-additemmenu="${menuItem.id}"></i>
+                    <i aria-label="add order" class="fa-solid fa-circle-plus" data-additemmenu="${menuItem.id}"></i>
                     </div>
                     
                 </div>
